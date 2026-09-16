@@ -103,6 +103,52 @@ def verdict():
     print("wrote", HERE / "verdict.png")
 
 
+def banner():
+    """LinkedIn profile banner 1584x396. Bottom-left kept clear for avatar."""
+    import random
+    BW, BH = 1584, 396
+    img = Image.new("RGB", (BW, BH), BG)
+    d = ImageDraw.Draw(img)
+
+    # subtle equity-curve motif across the lower band (deterministic)
+    random.seed(11)
+    pts, val = [], 0.0
+    n = 90
+    for i in range(n + 1):
+        val += random.uniform(-1.0, 1.35)            # gentle upward drift
+        pts.append(val)
+    lo, hi = min(pts), max(pts)
+    top, bot = BH * 0.50, BH * 0.94
+    curve = [(int(i / n * BW), int(bot - (p - lo) / (hi - lo) * (bot - top)))
+             for i, p in enumerate(pts)]
+    # faint fill under the curve
+    poly = curve + [(BW, BH), (0, BH)]
+    d.polygon(poly, fill=(15, 32, 22))
+    d.line(curve, fill=(35, 90, 55), width=3, joint="curve")
+
+    # right-side green accent edge
+    d.rectangle([BW - 8, 0, BW, BH], fill=GREEN)
+
+    # text block (x kept >= 470 to clear the avatar bottom-left)
+    tx = 472
+    d.text((tx, 70), "$ python validate.py", font=mono(22), fill=GREEN)
+    d.text((tx - 2, 104), "Développeur Quant & Data", font=bold(58), fill=WHITE)
+    d.text((tx, 180), "Systèmes de trading · Backtesting honnête · Pipelines de marché",
+           font=reg(26), fill=GRAY)
+    d.text((tx, 222), "Je distingue le signal du bruit — et je le prouve.",
+           font=reg(26), fill=GREEN)
+    # pills
+    x = tx
+    for label in ("Python", "Databento", "IBKR", "pytest", "walk-forward OOS"):
+        x = pill(d, x, 280, label, mono(20), BLUE, PANEL)
+    # repo url top-right
+    url = "github.com/Makeph/honest-backtest"
+    d.text((BW - 40 - d.textlength(url, font=mono(22)), 36), url, font=mono(22), fill=GRAY)
+    img.save(HERE / "linkedin_banner.png")
+    print("wrote", HERE / "linkedin_banner.png")
+
+
 if __name__ == "__main__":
     cover()
     verdict()
+    banner()
