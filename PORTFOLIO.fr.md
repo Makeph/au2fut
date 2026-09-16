@@ -1,5 +1,9 @@
 # Au2fut — Un harnais de validation d'edge quantitatif (et un résultat négatif honnête)
 
+> **Le relevé de méthode complet — 41 hypothèses pré-déclarées et l'audit
+> CSCV/PBO qui les juge — est dans [**au2-method**](https://github.com/Makeph/au2-method).** Ce dépôt-ci en est
+> la réplication indépendante sur micro-futures CME.
+
 > **Ce que ce projet démontre :** une recherche quantitative rigoureuse qui
 > *réfute* des hypothèses de trading au lieu de les sur-ajuster en faux gagnants.
 > Sur 8 combinaisons stratégie/marché, avec des données de qualité

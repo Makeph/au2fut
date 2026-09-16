@@ -1,5 +1,9 @@
 # Au2fut — A Quantitative Edge-Validation Harness (and an honest negative result)
 
+> **The full method record — 41 pre-declared hypotheses and the CSCV/PBO audit
+> that judges them — lives in [**au2-method**](https://github.com/Makeph/au2-method).** This repository is the
+> independent replication on CME micro futures.
+
 > **What this project demonstrates:** disciplined quantitative research that
 > *falsifies* trading hypotheses instead of curve-fitting them into false
 > winners. Across 8 strategy/market combinations on institutional-grade data, it

@@ -1,5 +1,9 @@
 # Au2fut — CME Micro Futures Prop Edge Harness
 
+> **The full method record — 41 pre-declared hypotheses and the CSCV/PBO audit
+> that judges them — lives in [**au2-method**](https://github.com/Makeph/au2-method).** This repository is the
+> independent replication on CME micro futures.
+
 ![Honest backtest — prove an edge out-of-sample or kill it](assets/cover.png)
 
 > **Research only. No live trading, no execution code.** This phase answers one
